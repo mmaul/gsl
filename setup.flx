@@ -1,0 +1,23 @@
+include "std/felix/pkgtool";
+//$ Preforms build tasks in a way an Lib might like them done
+BUILD_LIKE = Lib;
+ 
+open PkgTool;
+open Filename;
+
+instance PkgTool {
+
+  proc build () {
+    task("Custom build for " + NAME);
+    create_config("gsl",list("gsl/gsl_rng.h"),list(
+		  "liblapack"+#Config::config.EXT_SHLIB,
+		  "libblas"+#Config::config.EXT_SHLIB,
+		  "libcblas"+#Config::config.EXT_SHLIB,
+		  "libgsl"+#Config::config.EXT_SHLIB
+		  ),Empty[string]);
+    default_build();
+  }
+
+}
+
+SetupTool::run();

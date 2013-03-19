@@ -1,0 +1,26 @@
+//Check gmp
+include "std/felix/pkgtool";
+open PkgTool;
+include "gsl/gsl_rng_lib";
+include "gsl/gsl_randist_lib";
+open gsl_rng_h;
+open gsl_randist_h;
+open C_hack;
+
+  var r = gsl_rng_alloc(gsl_rng_mt19937);
+  test_case("Random Distributions");
+  var n=10;
+  println$ "     gauss      gamma    gumbel1";
+  println$ "  ------------------------------";
+  for var i in 0 upto n do
+    var gauss = gsl_ran_gaussian(cptr(r),2.0);
+    var gamma = gsl_ran_gamma(cptr(r),2.0,3.0);
+    var gumbel1 = gsl_ran_gumbel1(cptr(r),2.0,3.0);
+    println$ fmt_default(gauss,10,2) + "," + fmt_default(gamma,10,2)
+    + "," + fmt_default(gumbel1,10,2);
+  done
+  imply("random distrubtions ok");
+
+
+
+
