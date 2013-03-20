@@ -10,14 +10,21 @@ MAINTAINER: mike.maul@gmail.com
 
 PKG_URL: https://github.com/mmaul/gsl
 
-DESCRIPTION: Generic Application Template
+DESCRIPTION: Gnu Scientific Library
 
-CATEGORY: Template
+CATEGORY: math
 
 LIBDIR: gsl
 
 -----
 Gnu Scientific Library
+
+## Requirements ##
+
+You will need to have gsl, libcblas, libblas and lapack installed to use
+this package
+
+## Installation ##
 
 * 'install' must be able to write to Felix INSTALL_ROOT
 
@@ -34,10 +41,11 @@ Otherwise ( Installs what you just built as you not what root would rebuild )
      scoop install gsl --litterbox=/home/<your username>/.felix/litterbox
 
 ## Documentation ##
+
 See gsl/*.flx
 Also see tests in the source distribution. Not many but gsl is freakin
-huge. However binding pretty much mirrors header files so just refer
-to gsl doucmention and felixiz it.
+huge. The binding pretty much mirrors header files so just refer
+to gsl doucmention and spin-it felix style.
 
 ## Example ##
 
@@ -61,8 +69,15 @@ This shoudl give you an idea of how to work with the rest of the library
       + "," + fmt_default(gumbel1,10,2);
     done
 
+## Bugs/Problems ##
+
+GSL is huge, and little of it has been tested in this binding. If you have 
+problems send them to the list. If you find a bug and fix it or have an 
+enhancement you can submit a pull request at github.
+
 ## License ##
-THIS WRAPPER IS may be FFAU .. if it isn't it will be GPL
-but I'm waiting for the Gnu to get back to me on wether it is or not.
-Code LINKED against fsl, however, may be governed
+
+THIS WRAPPER IS may be FFAU .. if it isn't it will be GPL.
+but I'm waiting for the Gnu to get back to me on for a determination.
+Code LINKED against will, however, may be governed
 by the GPL licence, RTFL
